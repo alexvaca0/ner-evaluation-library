@@ -37,8 +37,8 @@ def main(gs_path, pred_path, codes_path, subtask=['ner','norm']):
     '''
     
     if subtask=='norm':
-        gs = ann_parsing.main(gs_path, ['SPECIES', 'HUMAN'], codes_path)
-        pred = ann_parsing.main(pred_path, ['SPECIES', 'HUMAN'], codes_path)
+        gs = ann_parsing.main(gs_path, ['PAGADOR', 'RECEPTOR', 'CUENTA_EXP', 'IMPORTE', 'MANDAMIENTO'], codes_path)
+        pred = ann_parsing.main(pred_path, ['PAGADOR', 'RECEPTOR', 'CUENTA_EXP', 'IMPORTE', 'MANDAMIENTO'], codes_path)
         
         if pred.shape[0] == 0:
             raise Exception('There are not parsed predicted annotations')
@@ -46,8 +46,8 @@ def main(gs_path, pred_path, codes_path, subtask=['ner','norm']):
             raise Exception('There are not parsed Gold Standard annotations')
         
     elif subtask=='ner':
-        gs = ann_parsing.main(gs_path, ['SPECIES', 'HUMAN'], codes_path)
-        pred = ann_parsing.main(pred_path, ['SPECIES', 'HUMAN'], codes_path)
+        gs = ann_parsing.main(gs_path, ['PAGADOR', 'RECEPTOR', 'CUENTA_EXP', 'IMPORTE', 'MANDAMIENTO'], codes_path)
+        pred = ann_parsing.main(pred_path, ['PAGADOR', 'RECEPTOR', 'CUENTA_EXP', 'IMPORTE', 'MANDAMIENTO'], codes_path)
         
         if pred.shape[0] == 0:
             raise Exception('There are not parsed predicted annotations')
